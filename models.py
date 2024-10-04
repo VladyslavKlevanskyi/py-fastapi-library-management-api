@@ -4,7 +4,7 @@ from database import Base
 
 
 class Author(Base):
-    __tablename__ = "authors"
+    __tablename__ = "author"
 
     id = Column(Integer, primary_key=True)
     name = Column(String, unique=True, index=True)
@@ -13,14 +13,13 @@ class Author(Base):
     books = relationship("Book", back_populates="author")
 
 
-
 class Book(Base):
-    __tablename__ = "books"
+    __tablename__ = "book"
 
     id = Column(Integer, primary_key=True)
     title = Column(String, index=True)
     summary = Column(String, index=True)
-    publication_date = (Date)
-    author_id = Column(Integer, ForeignKey("autor.id"))
+    publication_date = Column(Date)
+    author_id = Column(Integer, ForeignKey("author.id"))
 
-    author = relationship(Author, back_populates="books")
+    author = relationship("Author", back_populates="books")
