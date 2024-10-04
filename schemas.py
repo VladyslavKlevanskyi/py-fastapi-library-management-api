@@ -17,7 +17,7 @@ class Book(BookBase):
     author_id: int
 
     class Config:
-        orm_model = True
+        orm_mode = True
 
 
 class AuthorBase(BaseModel):
@@ -34,4 +34,4 @@ class Author(AuthorBase):
     books: list[Book] = []
 
     class Config:
-        orm_model = True
+        orm_mode = True
